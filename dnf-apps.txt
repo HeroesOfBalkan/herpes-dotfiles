@@ -1,0 +1,8 @@
+solopasha/hyprland
+?/hyprpaper
+?/hyprlock
+?/helix
+?/waybar
+?/
+steam
+firefox

@@ -1,0 +1,22 @@
+com.bitwig.BitwigStudio
+com.github.IsmaelMartinez.teams_for_linux # za faks, лол
+com.github.unrud.VideoDownloader
+om.ktechpit.whatsie
+com.lunarclient.LunarClient
+com.obsproject.Studio
+io.bassi.Amberol # alternativa za mp3 player
+io.freetubeapp.FreeTube
+io.github.shiftey.Desktop
+io.github.alainm23.planify # maybe
+io.github.ungoogled_software.ungoogled_chromium
+io.github.zen_browser.zen
+md.obsidian.Obsidian
+org.audacityteam.Audacity
+org.blender.Blender
+org.gimp.GIMP
+org.inkscape.Inkscapeorg.kde.krita
+org.mozilla.Thunderbird
+org.qbittorrent.qBittorrent
+org.signal.Signal # nothin spec
+org.videolan.VLC
+xyz.armcord.ArmCord # alternative to Discord

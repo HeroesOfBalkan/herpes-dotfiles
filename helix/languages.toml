@@ -1,0 +1,27 @@
+# Rust
+[language-server.rust-analyzer.config.check]
+command = "clippy"
+
+# Zig
+[language-server.zls]
+command = "/usr/bin/zls"
+config.zig_exe_path = "/usr/bin/zig"
+
+# Python
+[language-server.ruff]
+command = "ruff"
+args = ["server"]
+
+[[language]]
+name = "python"
+language-servers = ["ruff"]
+
+# CMake
+[[language]]
+name = "cmake"
+auto-format = true
+language-servers = [{ name = "neocmakelsp" }]
+
+[language-server.neocmakelsp]
+command = "/home/marko/Vulkan/neocmakelsp-x86_64-unknown-linux-gnu"
+args = ["--stdio"]

@@ -8,7 +8,7 @@
     // "modules-left": ["hyprland/workspaces"],
     "modules-left": ["hyprland/workspaces"],
     "modules-center": ["hyprland/window"],
-    "modules-right": ["mpris", "tray", "hyprland/language", "pulseaudio", "network", "battery", "clock"],
+    "modules-right": ["mpris", "tray", "hyprland/language", "pulseaudio", "network", "bluetooth", "battery", "clock"],
     // "modules-right": ["tray", "pulseaudio", "network", "cpu", "memory", "battery", "clock"],
     // TODO: config mpris or mpd
 
@@ -32,9 +32,9 @@
 
     "hyprland/language": {
         // "format": "{} \uf1ab" ,
-        "format-en": "Eng \uf1ab ",
-        "format-sr-latin": "Srp \uf1ab ",
-        "format-sr": "Срп \uf1ab "
+        "format-en": "Eng \uf1ab",
+        "format-sr-latin": "Srp \uf1ab",
+        "format-sr": "Срп \uf1ab"
     },
 
     // Tray
@@ -44,9 +44,33 @@
     },
     
     "clock": {
-        "format-alt": "{:%d %m %Y}",
+        "format": "{:%H:%M} 󰥔",
+        // "format-alt": "{:%d %B %Y}",
         "tooltip": true,
-        "tooltip-format": "{calendar}"
+        "tooltip-format": "<span font='JetBrains Mono'>Датум: {:%d %B %Y}</span><span font='JetBrains Mono'>\n\n{calendar}</span>",
+        "calendar": {
+            "mode"          : "month",
+            "mode-mon-col"  : 3,
+            "weeks-pos"     : "right",
+            "on-scroll"     : 1,
+            "format": {
+                "months":     "<span color='#a6e3a1'><b>{}</b></span>",
+                "days":       "<span color='#cdd6f4'>{}</span>",
+                "weeks":      "<span color='#94e2d5'>W{:%W}</span>",
+                "weekdays":   "<span color='#fab387'><i>{}</i></span>",
+                "today":      "<span color='#89dceb' background='#313244'><b><u>{}</u></b></span>"
+            }
+        },
+        "actions":  {
+            "on-click": "mode", 
+            "on-click-right": "shift_up",
+            "on-click-middle": "shift_reset"
+            // "on-click-middle": "shift_down"
+            // "on-scroll-up": "tz_up",
+            // "on-scroll-down": "tz_down",
+            // "on-scroll-up": "shift_up",
+            // "on-scroll-down": "shift_down"
+        }
     },
     
     "cpu": {
@@ -73,19 +97,28 @@
     "network": {
         // "interface": "wlp2s0", // (Optional) To force the use of this interface
         "interval": 10,
-        "format": "",
-        "format-disconnected": "⚠",
+        "format": "{icon}",
+        "format-disconnected": "󱛅",
         "tooltip": true,
         "tooltip-format-wifi": "{essid} {signalStrength}% - {bandwidthDownBytes} \udb80\uddda , {bandwidthUpBytes} \udb81\udd52 ",
         "tooltip-format-ethernet": "{ifname}: {ipaddr}/{cidr} - {bandwidthUpBytes} \udb80\uddda , {bandwidthDownBytes} \udb81\udd52 ",
-        "tooltip-format-disconnected": "Disconnected ⚠"
+        "tooltip-format-disconnected": "Disconnected ⚠",
+        "format-icons": ["󰤟", "󰤢", "󰤥", ""]
+    },
+
+    "bluetooth": {
+        "format-disabled": "",
+        "format-off": "󰂲",
+        "format-on": "",
+        "format-connected": "",
+        "tooltip-format": "{controller_alias} ({device_battery_percentage}%): {status}"
     },
     
     "pulseaudio": {
         //"scroll-step": 1,
         "format": "{volume}% {icon}",
-        "format-bluetooth": "{volume}% {icon}",
-        "format-muted": "",
+        //"format-bluetooth": "{volume}% {icon}",
+        "format-muted": "󰖁",
         "format-icons": {
             "headphones": "",
             "handsfree": "",
@@ -93,15 +126,18 @@
             "phone": "",
             "portable": "",
             "car": "",
-            "default": ["", ""]
+            "default": ["", "", ""]
         },
-        // "on-click": "pavucontrol",
-        "on-click-right": "pavucontrol"
+        "on-click-right": "pavucontrol",
+        // Disable changing volume on scroll (causes problems)
+        "on-scroll-up": "",
+        "on-scroll-down": "",
+        "smooth-scrolling-threshold": 50.0
     },
 
     "mpris": {
         "interval": 1,
-        "format": "{status_icon} {title} \udb81\udf5a ",
+        "format": "{status_icon} {title} \udb81\udf5a",
         // "format-paused": "{status_icon} {title} \udb81\udf5a ",
         "tooltip-format": "{player} ({status_icon}): {dynamic}",
         //"dynamic-order": ["title", "artist", "position", "length"],

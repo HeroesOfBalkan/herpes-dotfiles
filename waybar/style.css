@@ -17,11 +17,12 @@ window#waybar {
 
 #window {
     font-weight: bold;
-    font-family: "Ubuntu";
 }
 
 tooltip {
-    background-color: @base;
+    background-color: @mantle;
+    border: 1px solid @sky;
+    border-radius: 2px;
 }
 /*
 #workspaces {
@@ -50,13 +51,29 @@ tooltip {
     border-bottom: 3px solid @rosewater;
 }
 
-#clock, #battery, #cpu, #memory, #network, #pulseaudio, #custom-spotify, #tray, #mode {
+#clock,
+#battery,
+#cpu,
+#memory,
+#network,
+#bluetooth,
+#pulseaudio,
+#language,
+#custom-spotify,
+#tray,
+#mode,
+#mpris {
     padding: 0 3px;
-    margin: 0 2px;
+    margin: 0 3px;
 }
 
 #clock {
     font-weight: bold;
+    font-family: "Monospace";
+}
+
+#clock tooltip {
+    font-family: "JetBrains Mono";
 }
 
 #battery {
@@ -105,8 +122,19 @@ tooltip {
 }
 
 #network.disconnected {
-    /* background: #f53c3c; */
     color: @yellow;
+}
+
+#bluetooth,
+#bluetooth.disabled {
+}
+
+#bluetooth.on {
+    color: @yellow;
+}
+
+#bluetooth.off {
+    color: @red;
 }
 
 #pulseaudio {
